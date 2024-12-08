@@ -1,15 +1,16 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance; // Singleton for global access
-    public TextMeshProUGUI scoreText; // UI element to display the score
-    private int score = 5; // The player's score
+    public static ScoreManager instance;
+    public TextMeshProUGUI scoreText; 
+    private int score = 1; 
 
     void Awake()
     {
-        // Make this the singleton instance
         if (instance == null) {
             instance = this;
         } else {
@@ -17,18 +18,25 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Method to increase score
+    private IEnumerator LoadMenuAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay); 
+        SceneManager.LoadScene("Menu"); 
+    }
+
+    public void checkDeath(int score) {
+        if (score <= 0)
+        {
+            SceneManager.LoadScene("Menu"); 
+            // StartCoroutine(LoadMenuAfterDelay(2f));
+        }
+    }
+
+
     public void AddScore(int points)
     {
         score += points;
+        // Invoke(() => checkDeath(score), 3f);
         scoreText.text = "Score: " + score.ToString();
-    }
-
-    // Optionally, reset the score
-    public void ResetScore()
-    {
-        score = 0;
-        scoreText.text = "Score: 0";
     }
 
     public int returnScore()

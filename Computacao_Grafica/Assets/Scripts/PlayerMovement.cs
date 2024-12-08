@@ -12,17 +12,12 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public float minX = -3.9199f;
     public float maxX = 3.83f;
-    public float minY = -0.1499f; // Assuming you don't want the player to go below the ground
+    public float minY = -0.1499f;
     public float maxY = 0f;
     // public float minZ = -10f;
     // public float maxZ = 10f;
 
-    private void Start() {
-        // Initialize speed or any other setups
-    }
-
     private void FixedUpdate() {
-        // Increase speed gradually over time but cap it at maxSpeed
         speed = Mathf.Min(maxSpeed, speed + speedIncreaseRate * Time.fixedDeltaTime);
         Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * 5 * Time.fixedDeltaTime * horizontalMultiplier;  

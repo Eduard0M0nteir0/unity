@@ -1,10 +1,10 @@
 using UnityEngine;
-using TMPro; // Needed for TextMeshPro
+using TMPro; 
 
 public class GateController : MonoBehaviour
 {
-    public bool isRightGate; // To indicate if the gate is the right one
-    public TextMeshPro textMesh; // Reference to TextMeshPro component on the Quad
+    public bool isRightGate; 
+    public TextMeshPro textMesh; 
     private Animator playerAnimator;
     void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player"); 
@@ -28,7 +28,7 @@ public class GateController : MonoBehaviour
     {
         // playerAnimator = GetComponent<Animator>();
 
-        if (other.CompareTag("Player")) // Ensure your cube has the "Player" tag
+        if (other.CompareTag("Player"))
         {
             if (isRightGate)
             {
@@ -43,7 +43,6 @@ public class GateController : MonoBehaviour
                 playerAnimator.SetTrigger("Wrong");
             }
 
-            // After passing through a gate, generate a new math problem
             FindObjectOfType<MathGameController>().GenerateMathProblem();
         }
     }
