@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using TMPro; 
 
 public class GateController : MonoBehaviour
@@ -39,12 +41,22 @@ public class GateController : MonoBehaviour
             else
             {
                 Debug.Log("Incorrect! You chose the wrong answer.");
-                ScoreManager.instance.AddScore(-4);
-                playerAnimator.SetTrigger("Wrong");
+                int score = ScoreManager.instance.AddScore(-4);
+                if (score <= 0)
+                {
+                    playerAnimator.SetTrigger("Death");
+                    StartCoroutine(WaitOneSecond());
+                }
+                else playerAnimator.SetTrigger("Wrong");
             }
-
             FindObjectOfType<MathGameController>().GenerateMathProblem();
         }
+    }
+
+    private IEnumerator WaitOneSecond()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Menu");
     }
 }
 

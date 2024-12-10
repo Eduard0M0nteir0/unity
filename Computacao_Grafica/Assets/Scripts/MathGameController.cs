@@ -18,7 +18,7 @@ public class MathGameController : MonoBehaviour
     {
         int number1 = 0;
         int number2 = 0;
-        int incrementDifficulty = ScoreManager.instance.returnScore();
+        int incrementDifficulty = ScoreManager.instance.AddScore(0);
 
         string[] operators = { "+", "-", "*", "/" };
         string chosenOperator = operators[Random.Range(0, operators.Length)];
