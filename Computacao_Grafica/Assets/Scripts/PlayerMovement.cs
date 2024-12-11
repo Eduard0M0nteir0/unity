@@ -3,8 +3,8 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
 
     public float speed = 5f;
-    public float speedIncreaseRate = 0.5f; // How much the speed increases every second
-    public float maxSpeed = 20f;
+    public float speedIncreaseRate = 0.05f; // How much the speed increases every second
+    public float maxSpeed = 15f;
     public Rigidbody rb;
 
     float horizontalInput;

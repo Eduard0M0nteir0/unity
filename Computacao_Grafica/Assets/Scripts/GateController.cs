@@ -42,7 +42,7 @@ public class GateController : MonoBehaviour
             else
             {
                 Debug.Log("Incorrect! You chose the wrong answer.");
-                int score = ScoreManager.instance.AddScore(-2);
+                int score = ScoreManager.instance.AddScore(-3);
                 if (score <= 0)
                 {
                     playerAnimator.SetTrigger("Death");

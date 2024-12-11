@@ -26,23 +26,23 @@ public class MathGameController : MonoBehaviour
         switch (chosenOperator)
         {
             case "+":
-                number1 = Random.Range(1 + incrementDifficulty, 50 + incrementDifficulty);
-                number2 = Random.Range(1 + incrementDifficulty, 50 + incrementDifficulty);
+                number1 = Random.Range(1 + incrementDifficulty, 25 + incrementDifficulty);
+                number2 = Random.Range(1 + incrementDifficulty, 25 + incrementDifficulty);
                 correctAnswer = number1 + number2;
                 break;
             case "-":
-                number1 = Random.Range(1 + incrementDifficulty, 50 + incrementDifficulty);
-                number2 = Random.Range(1 + incrementDifficulty, 50 + incrementDifficulty);
+                number1 = Random.Range(1 + incrementDifficulty, 25 + incrementDifficulty);
+                number2 = Random.Range(1 + incrementDifficulty, 25 + incrementDifficulty);
                 correctAnswer = number1 - number2;
                 break;
             case "*":
-                number1 = Random.Range(2 + incrementDifficulty, 10 + incrementDifficulty);
-                number2 = Random.Range(2 + incrementDifficulty, 10 + incrementDifficulty);
+                number1 = Random.Range(2 + incrementDifficulty, 7 + incrementDifficulty);
+                number2 = Random.Range(2 + incrementDifficulty, 7 + incrementDifficulty);
                 correctAnswer = number1 * number2;
                 break;
             case "/":
-                number1 = Random.Range(2 + incrementDifficulty, 10 + incrementDifficulty);
-                number2 = Random.Range(2 + incrementDifficulty, 10 + incrementDifficulty);
+                number1 = Random.Range(2 + incrementDifficulty, 7 + incrementDifficulty);
+                number2 = Random.Range(2 + incrementDifficulty, 7 + incrementDifficulty);
                 number1 = number1 * number2;
                 correctAnswer = number1 / number2;
                 break;
